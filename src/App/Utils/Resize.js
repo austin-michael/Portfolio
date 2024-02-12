@@ -11,6 +11,7 @@ export default class Resize {
                 height: window.innerHeight,
                 pixelRatio: Math.min(window.devicePixelRatio, 2),
             })
+          
           });
 
     }

@@ -5,4 +5,3 @@ export const sizesStore = createStore(() => ({
     height: window.innerHeight,
     pixelRatio: Math.min(window.devicePixelRatio, 2),
 }));
-
