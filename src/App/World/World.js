@@ -4,6 +4,8 @@ import App from "../App.js";
 import Physics from "./Physics.js";
 import Environment from "./Environment.js";
 import Character from "./Character.js";
+import CharacterController from "./CharacterController.js";
+import AnimationController from "./AnimationController.js";
 
 import { appStateStore } from "../Utils/Store.js";
 
@@ -11,14 +13,17 @@ export default class World {
   constructor() {
     this.app = new App();
     this.scene = this.app.scene;
-
+    
     this.physics = new Physics();
 
     // create world classes
-    appStateStore.subscribe((state) => {
-      if (state.physicsReady) {
+    const unsub = appStateStore.subscribe((state) => {
+      if (state.physicsReady && state.assetsReady) {
         this.environment = new Environment();
         this.character = new Character();
+        this.characterController = new CharacterController();
+        this.animationController = new AnimationController();
+        unsub();
       }
     });
 
@@ -27,5 +32,7 @@ export default class World {
 
   loop(deltaTime, elapsedTime) {
     this.physics.loop();
+    if(this.characterController) this.characterController.loop();
+    if(this.animationController) this.animationController.loop(deltaTime);
   }
 }
