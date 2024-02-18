@@ -23,7 +23,7 @@ export default class Camera {
       35,
       this.sizes.width / this.sizes.height,
       1,
-      600
+      600,
     );
     this.instance.position.z = 100;
     this.instance.position.y = 20;

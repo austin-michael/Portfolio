@@ -1,7 +1,6 @@
 import * as THREE from "three";
 import App from "../App.js";
 import assetStore from "../Utils/AssetStore.js";
-import ModalContentProvider from "../UI/ModalContentProvider.js";
 
 export default class Environment {
   constructor() {
@@ -50,10 +49,10 @@ export default class Environment {
       child.traverse((obj) => {
         if (obj.isMesh) {
           obj.castShadow = shadowCasters.some((keyword) =>
-            child.name.includes(keyword)
+            child.name.includes(keyword),
           );
           obj.receiveShadow = shadowReceivers.some((keyword) =>
-            child.name.includes(keyword)
+            child.name.includes(keyword),
           );
         }
       });

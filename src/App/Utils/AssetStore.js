@@ -2,15 +2,15 @@ import { createStore } from "zustand/vanilla";
 
 const assetsToLoad = [
   {
-    id:'avatar',
-    path:'/models/avatar.glb',
-    type: 'model' 
+    id: "avatar",
+    path: "/models/avatar.glb",
+    type: "model",
   },
   {
-    id:'environment',
-    path:'/models/environment.glb',
-    type: 'model' 
-  }
+    id: "environment",
+    path: "/models/environment.glb",
+    type: "model",
+  },
 ];
 
 const assetStore = createStore((set) => ({

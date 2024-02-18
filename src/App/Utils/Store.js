@@ -9,10 +9,3 @@ export const sizesStore = createStore(() => ({
 export const appStateStore = createStore(() => ({
   assetsReady: false,
 }));
-
-export const inputStore = createStore(() => ({
-  forward: false,
-  backward: false,
-  left: false,
-  right: false,
-}));
