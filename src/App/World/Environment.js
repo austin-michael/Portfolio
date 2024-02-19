@@ -1,38 +1,29 @@
 import * as THREE from "three";
+
 import App from "../App.js";
 import assetStore from "../Utils/AssetStore.js";
+import Click from "../Utils/Click.js";
 
 export default class Environment {
   constructor() {
     this.app = new App();
     this.scene = this.app.scene;
     this.pane = this.app.gui.pane;
-
     this.assetStore = assetStore.getState();
     this.environment = this.assetStore.loadedAssets.environment;
+    this.click = new Click();
 
     this.loadEnvironment();
     this.addLights();
   }
 
   loadEnvironment() {
-    // load environment here
     const environmentScene = this.environment.scene;
     this.scene.add(environmentScene);
 
-    environmentScene.position.set(-4.8, 0, -7.4);
+    environmentScene.position.set(0, 0, 0);
     environmentScene.rotation.set(0, -0.6, 0);
     environmentScene.scale.setScalar(1.3);
-
-    const physicalObjects = [
-      "trees",
-      "terrain",
-      "rocks",
-      "stairs",
-      "gates",
-      "floor",
-      "bushes",
-    ];
 
     const shadowCasters = [
       "trees",
@@ -49,10 +40,10 @@ export default class Environment {
       child.traverse((obj) => {
         if (obj.isMesh) {
           obj.castShadow = shadowCasters.some((keyword) =>
-            child.name.includes(keyword),
+            child.name.includes(keyword)
           );
           obj.receiveShadow = shadowReceivers.some((keyword) =>
-            child.name.includes(keyword),
+            child.name.includes(keyword)
           );
         }
       });

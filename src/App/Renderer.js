@@ -1,4 +1,5 @@
 import * as THREE from "three";
+
 import App from "./App.js";
 import { sizesStore } from "./Utils/Store.js";
 
@@ -25,7 +26,6 @@ export default class Renderer {
     this.instance.outputEncoding = THREE.sRGBEncoding;
     this.instance.shadowMap.enabled = true;
     this.instance.shadowMap.type = THREE.PCFSoftShadowMap;
-
     this.instance.toneMapping = THREE.ACESFilmicToneMapping;
     this.instance.toneMappingExposure = 0.8;
   }

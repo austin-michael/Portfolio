@@ -1,16 +1,14 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { sizesStore } from "./Utils/Store.js";
 
 import App from "./App.js";
+import { sizesStore } from "./Utils/Store.js";
 
 export default class Camera {
   constructor() {
     this.app = new App();
     this.canvas = this.app.canvas;
-
     this.sizesStore = sizesStore;
-
     this.sizes = this.sizesStore.getState();
 
     this.setInstance();
@@ -23,7 +21,7 @@ export default class Camera {
       35,
       this.sizes.width / this.sizes.height,
       1,
-      600,
+      600
     );
     this.instance.position.z = 100;
     this.instance.position.y = 20;

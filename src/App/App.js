@@ -1,4 +1,5 @@
 import * as THREE from "three";
+
 import Camera from "./Camera.js";
 import Renderer from "./Renderer.js";
 import Loop from "./Utils/Loop.js";
@@ -7,7 +8,6 @@ import World from "./World/World.js";
 import Resize from "./Utils/Resize.js";
 import AssetLoader from "./Utils/AssetLoader.js";
 import Preloader from "./UI/Preloader.js";
-import ModalManager from "./UI/ModalManager.js";
 
 let instance = null;
 
@@ -16,29 +16,32 @@ export default class App {
     if (instance) return instance;
     instance = this;
 
-    // threejs elements
+    // create threejs scene
     this.canvas = document.querySelector("canvas.threejs");
     this.scene = new THREE.Scene();
 
-    // add debug GUI
+    // debug gui
     this.gui = new GUI();
 
-    // Asset Loader
+    // load assets
     this.assetLoader = new AssetLoader();
 
-    // UI
+    // load ui
     this.preloader = new Preloader();
-    this.inputController = new InputController();
 
-    // World
+    // create world
     this.world = new World();
 
-    // Camera and Renderer
+    // create camera
     this.camera = new Camera();
+
+    // create renderer
     this.renderer = new Renderer();
 
-    // extra utils
+    // create game loop
     this.loop = new Loop();
+
+    // create resize handler for responsiveness
     this.resize = new Resize();
   }
 }

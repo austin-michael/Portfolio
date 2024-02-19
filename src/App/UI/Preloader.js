@@ -5,7 +5,6 @@ export default class Preloader {
   constructor() {
     this.assetStore = assetStore;
 
-    // access to DOM elements
     this.overlay = document.querySelector(".overlay");
     this.loading = document.querySelector(".loading");
     this.startButton = document.querySelector(".start");
@@ -34,7 +33,6 @@ export default class Preloader {
     this.startButton.addEventListener(
       "click",
       () => {
-        console.log("started");
         this.overlay.classList.add("fade");
         this.startButton.classList.add("fadeOut");
 
@@ -43,7 +41,7 @@ export default class Preloader {
           this.startButton.remove();
         }, 2000);
       },
-      { once: true },
+      { once: true }
     );
   }
 }
