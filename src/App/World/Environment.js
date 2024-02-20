@@ -3,6 +3,7 @@ import * as THREE from "three";
 import App from "../App.js";
 import assetStore from "../Utils/AssetStore.js";
 import Click from "../Utils/Click.js";
+import { Pane } from "tweakpane";
 
 export default class Environment {
   constructor() {
@@ -11,30 +12,26 @@ export default class Environment {
     this.pane = this.app.gui.pane;
     this.assetStore = assetStore.getState();
     this.environment = this.assetStore.loadedAssets.environment;
-    this.click = new Click();
+    // this.click = new Click();
 
     this.loadEnvironment();
     this.addLights();
+    // this.addLightHelper();
   }
 
   loadEnvironment() {
     const environmentScene = this.environment.scene;
     this.scene.add(environmentScene);
 
+    console.log(environmentScene);
+
     environmentScene.position.set(0, 0, 0);
-    environmentScene.rotation.set(0, -0.6, 0);
-    environmentScene.scale.setScalar(1.3);
+    // environmentScene.rotation.set(0, -0.6, 0);
+    // environmentScene.scale.setScalar(5);
 
-    const shadowCasters = [
-      "trees",
-      "terrain",
-      "rocks",
-      "stairs",
-      "gates",
-      "bushes",
-    ];
+    const shadowCasters = ["TERRAIN", "POLES", "LIFT", "SIGNS", "TREES", "HUT"];
 
-    const shadowReceivers = ["floor", "terrain"];
+    const shadowReceivers = ["TERRAIN"];
 
     for (const child of environmentScene.children) {
       child.traverse((obj) => {
@@ -51,11 +48,12 @@ export default class Environment {
   }
 
   addLights() {
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
     this.scene.add(ambientLight);
 
-    this.directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-    this.directionalLight.position.set(1, 1, 1);
+    this.directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    this.directionalLight.position.set(-22, 30, 20);
+    this.directionalLight.target.position.set(0, 0, 0);
     this.directionalLight.castShadow = true;
     this.directionalLight.shadow.camera.top = 30;
     this.directionalLight.shadow.camera.right = 30;
@@ -64,6 +62,29 @@ export default class Environment {
     this.directionalLight.shadow.bias = -0.002;
     this.directionalLight.shadow.normalBias = 0.072;
     this.scene.add(this.directionalLight);
+  }
+
+  addLightHelper() {
+    const helper = new THREE.DirectionalLightHelper(this.directionalLight, 5);
+    this.scene.add(helper);
+
+    this.pane = new Pane();
+
+    this.pane.addInput(this.directionalLight.position, "x", {
+      min: -200,
+      max: 200,
+      step: 1,
+    });
+    this.pane.addInput(this.directionalLight.position, "y", {
+      min: -200,
+      max: 200,
+      step: 1,
+    });
+    this.pane.addInput(this.directionalLight.position, "z", {
+      min: -200,
+      max: 200,
+      step: 1,
+    });
   }
 
   loop() {}
