@@ -16,7 +16,7 @@ export default class Environment {
 
     this.loadEnvironment();
     this.addLights();
-    // this.addLightHelper();
+    this.addLightHelper();
   }
 
   loadEnvironment() {
@@ -31,7 +31,7 @@ export default class Environment {
 
     const shadowCasters = ["TERRAIN", "POLES", "LIFT", "SIGNS", "TREES", "HUT"];
 
-    const shadowReceivers = ["TERRAIN"];
+    const shadowReceivers = ["floor", "TERRAIN"];
 
     for (const child of environmentScene.children) {
       child.traverse((obj) => {
@@ -52,7 +52,7 @@ export default class Environment {
     this.scene.add(ambientLight);
 
     this.directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    this.directionalLight.position.set(-22, 30, 20);
+    this.directionalLight.position.set(-10, 30, 50);
     this.directionalLight.target.position.set(0, 0, 0);
     this.directionalLight.castShadow = true;
     this.directionalLight.shadow.camera.top = 30;

@@ -70,7 +70,7 @@ body {
 }
 
 .modal {
-  display: none;
+  display: block;
   position: fixed;
   z-index: 9999;
   left: 0;
@@ -101,7 +101,7 @@ body {
 }
 
 .modal-content {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #afd2dc;
   backdrop-filter: blur(10px);
   padding: 20px;
   border-radius: 20px;
@@ -109,7 +109,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   margin: 0 auto;
-  color: black;
+  color: #182d33;
   /* Set text color to white within the modal */
 }
 
