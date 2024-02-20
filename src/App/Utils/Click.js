@@ -14,25 +14,37 @@ export default class Click {
     this.sizes = this.sizesStore.getState();
 
     this.modalManager = new ModalManager();
+  }
 
+  mouseClickHandler(event) {
     this.raycaster = new THREE.Raycaster();
     this.mouse = new THREE.Vector2();
 
-    const onMouseClick = (event) => {
-      this.mouse.x = (event.clientX / this.sizes.width) * 2 - 1;
-      this.mouse.y = -(event.clientY / this.sizes.height) * 2 + 1;
+    this.mouse.x = (event.clientX / this.sizes.width) * 2 - 1;
+    this.mouse.y = -(event.clientY / this.sizes.height) * 2 + 1;
 
-      this.raycaster.setFromCamera(this.mouse, this.camera.instance);
-      const intersects = this.raycaster.intersectObjects(this.scene.children);
+    this.raycaster.setFromCamera(this.mouse, this.camera.instance);
+    this.intersections = this.raycaster.intersectObjects(
+      this.scene.children,
+      true
+    );
 
-      for (var i = 0; i < intersects.length; i++) {
-        console.log(intersects[i]);
-        if (intersects[i].object.name.includes("portal")) {
-          this.modalManager.openModal("Projects", "Test");
-        }
+    this.intersections.forEach((intersection) => {
+      const individualObject = intersection.object;
+      const objectParentName = individualObject.parent.name;
+      switch (objectParentName) {
+        case "PROJECTS":
+          console.log("clicked projects");
+          this.modalManager.openModal("projects", "test");
+          break;
+        case "ABOUT":
+          this.modalManager.openModal("about me", "test");
+          break;
+
+        case "EXPERIENCE":
+          this.modalManager.openModal("Experience", "test");
+          break;
       }
-    };
-
-    window.addEventListener("click", onMouseClick, false);
+    });
   }
 }

@@ -12,18 +12,21 @@ export default class Environment {
     this.pane = this.app.gui.pane;
     this.assetStore = assetStore.getState();
     this.environment = this.assetStore.loadedAssets.environment;
-    // this.click = new Click();
 
     this.loadEnvironment();
     this.addLights();
-    this.addLightHelper();
+    // this.addLightHelper();
+
+    const onClick = (event) => {
+      this.click = new Click();
+      this.click.mouseClickHandler(event);
+    };
+    document.addEventListener("click", onClick);
   }
 
   loadEnvironment() {
     const environmentScene = this.environment.scene;
     this.scene.add(environmentScene);
-
-    console.log(environmentScene);
 
     environmentScene.position.set(0, 0, 0);
     // environmentScene.rotation.set(0, -0.6, 0);
