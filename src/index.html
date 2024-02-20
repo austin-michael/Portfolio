@@ -11,27 +11,247 @@
     <meta charset="utf-8" />
     <title>Austin Williams Portfolio</title>
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./projects.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/81d0ed8b91.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
     <!-- three.js scene -->
-    <canvas class="threejs"></canvas>
+    <!-- <canvas class="threejs"></canvas>
 
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./index.js"></script> -->
 
     <!-- start screen -->
-    <div class="overlay"></div>
+    <!-- <div class="overlay"></div>
     <h1 class="loading">
       Loading Experience... <span id="progressPercentage"></span>%
     </h1>
-    <button class="start">START</button>
+    <button class="start">START</button> -->
 
     <!-- modals -->
     <div id="myModal" class="modal">
       <div class="modal-wrapper">
         <div class="modal-content">
-          <h1 id="modalTitle">Modal Title</h1>
-          <p id="modalDescription">Modal Description</p>
+          <h1 class="modal-title">Projects</h1>
+          <div class="modalDescription">
+            <div class="projects-container">
+              <div class="project-card">
+                <div class="project-card-header">
+                  <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                  <div class="project-card-header-links">
+                    <a
+                      href="https://github.com/austin-michael/crwn-clothing"
+                      target="_blank"
+                    >
+                      <i class="fa-brands fa-github fa-lg"></i>
+                    </a>
+                    <a
+                      href="https://tourmaline-quokka-ce0847.netlify.app/"
+                      target="_blank"
+                    >
+                      <i
+                        class="fa-solid fa-arrow-up-right-from-square fa-lg"
+                      ></i>
+                    </a>
+                  </div>
+                </div>
+                <h2 class="project-card-title">CRWN Clothing</h2>
+                <p class="project-card-description">
+                  E-commerce clothing store, built with React, TypeScript, React
+                  Redux for state management, React Router, and Firebase.
+                </p>
+                <div class="project-card-logos">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+                  />
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+                  />
+
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg"
+                  />
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactrouter/reactrouter-original.svg"
+                  />
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg"
+                  />
+                </div>
+              </div>
+              <div class="project-card">
+                <div class="project-card-header">
+                  <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                  <div class="project-card-header-links">
+                    <a
+                      href="https://github.com/austin-michael/Omnifood"
+                      target="_blank"
+                    >
+                      <i class="fa-brands fa-github fa-lg"></i>
+                    </a>
+                    <a
+                      href="https://omnifood-austin-williams.netlify.app/"
+                      target="_blank"
+                    >
+                      <i
+                        class="fa-solid fa-arrow-up-right-from-square fa-lg"
+                      ></i>
+                    </a>
+                  </div>
+                </div>
+                <h2 class="project-card-title">Omnifood</h2>
+                <p class="project-card-description">
+                  Food delivery service, built with HTML, JavaScript, and CSS
+                </p>
+                <div class="project-card-logos">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                  />
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                  />
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+                  />
+                </div>
+              </div>
+              <div class="project-card">
+                <div class="project-card-header">
+                  <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                  <div class="project-card-header-links">
+                    <a
+                      href="https://github.com/austin-michael/zac.portfolio"
+                      target="_blank"
+                    >
+                      <i class="fa-brands fa-github fa-lg"></i>
+                    </a>
+                    <a href="https://zac-williams.com/" target="_blank">
+                      <i
+                        class="fa-solid fa-arrow-up-right-from-square fa-lg"
+                      ></i>
+                    </a>
+                  </div>
+                </div>
+                <h2 class="project-card-title">ZAC-ARIAH.</h2>
+                <p class="project-card-description">
+                  Portfolio site for an architect/designer, built with React,
+                  React Router, and CSS
+                </p>
+                <div class="project-card-logos">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+                  />
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactrouter/reactrouter-original.svg"
+                  />
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+                  />
+                </div>
+              </div>
+              <div class="project-card">
+                <div class="project-card-header">
+                  <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                  <div class="project-card-header-links">
+                    <a
+                      href="https://github.com/austin-michael/Jobbee-API"
+                      target="_blank"
+                    >
+                      <i class="fa-brands fa-github fa-lg"></i>
+                    </a>
+                  </div>
+                </div>
+                <h2 class="project-card-title">Jobbee-API</h2>
+                <p class="project-card-description">
+                  Backend RESTful API for a job search app, built with Node.js
+                  using Express.js and MongoDB
+                </p>
+                <div class="project-card-logos">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
+                  />
+
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg"
+                  />
+
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg"
+                  />
+                </div>
+              </div>
+              <div class="project-card">
+                <div class="project-card-header">
+                  <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                  <div class="project-card-header-links">
+                    <a
+                      href="https://github.com/austin-michael/Solar-System"
+                      target="_blank"
+                    >
+                      <i class="fa-brands fa-github fa-lg"></i>
+                    </a>
+                  </div>
+                </div>
+                <h2 class="project-card-title">Solar System</h2>
+                <p class="project-card-description">
+                  3D animated solar system built with JavaScript and Three.js
+                </p>
+                <div class="project-card-logos">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                  />
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/threejs/threejs-original.svg"
+                  />
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg"
+                  />
+                </div>
+              </div>
+              <div class="project-card">
+                <div class="project-card-header">
+                  <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                  <div class="project-card-header-links">
+                    <a
+                      href="https://github.com/austin-michael/Solar-System"
+                      target="_blank"
+                    >
+                      <i class="fa-brands fa-github fa-lg"></i>
+                    </a>
+                  </div>
+                </div>
+                <h2 class="project-card-title">This Portfolio</h2>
+                <p class="project-card-description">
+                  3D portfolio built with JavaScript, Three.js, HTML, and CSS
+                </p>
+                <div class="project-card-logos">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                  />
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/threejs/threejs-original.svg"
+                  />
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                  />
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+                  />
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <span class="close">Close</span>
       </div>

@@ -1,0 +1,44 @@
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.project-card {
+  background-color: lightblue;
+  color: white;
+
+  padding: 24px;
+
+  border-radius: 10px;
+}
+
+.project-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-card-header-links {
+  display: flex;
+  gap: 12px;
+}
+
+.project-card-header-links a:visited {
+  color: initial;
+}
+
+.project-card-title {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.project-card-logos {
+  display: flex;
+  gap: 12px;
+}
+
+.project-card-logos img {
+  height: 24px;
+  width: 24px;
+}
