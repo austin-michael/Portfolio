@@ -45,10 +45,11 @@ export default class Click {
           modalContent = this.modalContentProvider.fetchModalContents("ABOUT");
           this.modalManager.openModal("About", modalContent);
           break;
-
-        // case "EXPERIENCE":
-        //   this.modalManager.openModal("Experience", "test");
-        //   break;
+        case "EXPERIENCE":
+          modalContent =
+            this.modalContentProvider.fetchModalContents("EXPERIENCE");
+          this.modalManager.openModal("Experience", modalContent);
+          break;
       }
     });
   }
