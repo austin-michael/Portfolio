@@ -34,16 +34,17 @@ export default class Click {
     this.intersections.forEach((intersection) => {
       const individualObject = intersection.object;
       const objectParentName = individualObject.parent.name;
+      let modalContent;
       switch (objectParentName) {
         case "PROJECTS":
-          console.log("clicked projects");
-          const modalContent =
+          modalContent =
             this.modalContentProvider.fetchModalContents("PROJECTS");
           this.modalManager.openModal("Projects", modalContent);
           break;
-        // case "ABOUT":
-        //   this.modalManager.openModal("About Me", "test");
-        //   break;
+        case "ABOUT":
+          modalContent = this.modalContentProvider.fetchModalContents("ABOUT");
+          this.modalManager.openModal("About", modalContent);
+          break;
 
         // case "EXPERIENCE":
         //   this.modalManager.openModal("Experience", "test");

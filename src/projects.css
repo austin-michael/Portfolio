@@ -5,7 +5,9 @@
 }
 
 .project-card {
-  background-color: lightblue;
+  display: grid;
+  /* grid-template-rows: 1fr 1fr 1fr auto; */
+  background-color: #1a658f;
   color: white;
 
   padding: 24px;
@@ -17,6 +19,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: white;
+}
+
+.project-card-header i {
+  color: white;
 }
 
 .project-card-header-links {
@@ -33,7 +40,13 @@
   margin-bottom: 16px;
 }
 
+.project-card-description {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
 .project-card-logos {
+  align-self: flex-end;
   display: flex;
   gap: 12px;
 }
