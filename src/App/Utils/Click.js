@@ -3,6 +3,7 @@ import * as THREE from "three";
 import App from "../App";
 import { sizesStore } from "./Store";
 import ModalManager from "../UI/ModalManager";
+import ModalContentProvider from "../UI/ModalContentProvider";
 
 export default class Click {
   constructor() {
@@ -13,6 +14,7 @@ export default class Click {
     this.sizesStore = sizesStore;
     this.sizes = this.sizesStore.getState();
 
+    this.modalContentProvider = new ModalContentProvider();
     this.modalManager = new ModalManager();
   }
 
@@ -35,15 +37,17 @@ export default class Click {
       switch (objectParentName) {
         case "PROJECTS":
           console.log("clicked projects");
-          this.modalManager.openModal("projects", "test");
+          const modalContent =
+            this.modalContentProvider.fetchModalContents("PROJECTS");
+          this.modalManager.openModal("Projects", modalContent);
           break;
-        case "ABOUT":
-          this.modalManager.openModal("about me", "test");
-          break;
+        // case "ABOUT":
+        //   this.modalManager.openModal("About Me", "test");
+        //   break;
 
-        case "EXPERIENCE":
-          this.modalManager.openModal("Experience", "test");
-          break;
+        // case "EXPERIENCE":
+        //   this.modalManager.openModal("Experience", "test");
+        //   break;
       }
     });
   }

@@ -6,4 +6,5 @@ export default {
   publicDir: "../static/",
   base: "./",
   plugins: [wasm(), topLevelAwait()],
+  assetsInclude: "**/*.html",
 };

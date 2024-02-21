@@ -7,9 +7,9 @@ export default class ModalManager {
     };
   }
 
-  openModal(title, description) {
+  openModal(title, content) {
     document.getElementById("modalTitle").innerHTML = title;
-    document.getElementById("modalDescription").innerHTML = description;
+    document.getElementById("modalDescription").innerHTML = content;
     this.modal.style.display = "block";
     this.modal.classList.remove("fadeOut");
     this.modal.classList.add("fadeIn");
