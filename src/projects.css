@@ -55,3 +55,15 @@
   height: 24px;
   width: 24px;
 }
+
+@media screen and (max-width: 1100px) {
+  .projects-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,31 @@
+.about-heading {
+  margin: 0;
+  padding: 0;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 64px;
+}
+
+.contact-container ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-container a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-container a {
+  color: #141617;
+  text-decoration: none;
+}
+
+.contact-container i {
+  color: #141617;
+}
