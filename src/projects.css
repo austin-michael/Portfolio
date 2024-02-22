@@ -13,9 +13,6 @@
   border-radius: 10px;
 }
 
-.project-card-content {
-}
-
 .project-card-header {
   display: flex;
   justify-content: space-between;
@@ -56,6 +53,8 @@
   height: 24px;
   width: 24px;
 }
+
+/* MEDIA QUERIES */
 
 @media screen and (max-width: 1100px) {
   .projects-container {
