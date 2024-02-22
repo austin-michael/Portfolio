@@ -1,6 +1,6 @@
-import ProjectContent from "../../../public/Modals/ProjectModal.html?raw";
-import AboutContent from "../../../public/Modals/About.html?raw";
-import ExperienceContent from "../../../public/Modals/Experience.html?raw";
+import ProjectContent from "../Modals/ProjectModal.html?raw";
+import AboutContent from "../Modals/About.html?raw";
+import ExperienceContent from "../Modals/Experience.html?raw";
 
 export default class ModalContentProvider {
   constructor() {}

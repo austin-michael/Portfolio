@@ -2,8 +2,8 @@ import * as THREE from "three";
 
 import App from "../App";
 import { sizesStore } from "./Store";
-import ModalManager from "../UI/ModalManager";
-import ModalContentProvider from "../UI/ModalContentProvider";
+import ModalManager from "../UI/Modals/ModalManager";
+import ModalContentProvider from "../UI/Modals/ModalContentProvider";
 
 export default class Click {
   constructor() {
