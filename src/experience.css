@@ -1,7 +1,11 @@
 .technologies-list,
-.professional-experience-list,
+.experience-list,
 .certifications-list {
   padding: 0 0 0 24px;
+}
+
+.technologies {
+  margin-bottom: 16px;
 }
 
 .technologies img {
@@ -23,16 +27,20 @@
   align-items: center;
 }
 
-.professional-experience-list {
+.experience {
+  margin-bottom: 16px;
+}
+
+.experience-list {
   list-style-type: none;
 }
 
-.professional-experience-list h4 {
-  margin: 0 0 4px 0;
+.experience-list li:not(:last-child) {
+  margin-bottom: 16px;
 }
 
-.professional-experience-list li {
-  margin-bottom: 16px;
+.experience-list h4 {
+  margin: 0 0 4px 0;
 }
 
 .earthsoft-experience-list {
@@ -41,7 +49,7 @@
   padding: 0;
 }
 
-.earthsoft-experience-list li {
+.earthsoft-experience-list li:not(:last-child) {
   margin-bottom: 8px;
 }
 
@@ -49,13 +57,15 @@
   list-style-type: none;
 }
 
+.certifications-list li:not(:last-child) {
+  margin-bottom: 16px;
+}
+
 .certifications-list h4 {
   margin: 0 0 4px 0;
 }
 
-.certifications-list li {
-  margin-bottom: 16px;
-}
+/* MEDIA QUERIES */
 
 @media screen and (max-width: 600px) {
   .technologies-list {
