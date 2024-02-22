@@ -1,12 +1,19 @@
-.about-heading {
-  margin: 0;
-  padding: 0;
+.about-header-container {
+  margin-bottom: 16px;
 }
 
-.about-container {
+.about-header-container h2 {
+  margin-bottom: 8px !important;
+}
+
+.about-detail-container {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 64px;
+}
+
+.about-description p:not(:last-child) {
+  margin-bottom: 16px;
 }
 
 .contact-container ul {
@@ -15,17 +22,27 @@
   padding: 0;
 }
 
+.contact-container li:not(:last-child) {
+  margin-bottom: 8px;
+}
+
 .contact-container a {
   display: flex;
   align-items: center;
   gap: 8px;
-}
-
-.contact-container a {
   color: #141617;
   text-decoration: none;
 }
 
 .contact-container i {
   color: #141617;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 900px) {
+  .about-detail-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
