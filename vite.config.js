@@ -7,4 +7,7 @@ export default {
   base: "./",
   plugins: [wasm(), topLevelAwait()],
   assetsInclude: ["**/*.html", "**/*.jpg"],
+  build: {
+    outDir: "../dist",
+  },
 };
