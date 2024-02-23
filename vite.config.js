@@ -2,11 +2,10 @@ import wasm from "vite-plugin-wasm";
 import topLevelAwait from "vite-plugin-top-level-await";
 
 export default {
-  root: "src/",
+  root: "./src",
   publicDir: "../static/",
   base: "./",
   plugins: [wasm(), topLevelAwait()],
-  assetsInclude: ["**/*.html", "**/*.jpg"],
   build: {
     outDir: "../dist",
   },
