@@ -1,6 +1,7 @@
 export default class ModalManager {
   constructor() {
-    this.modal = document.getElementById("myModal");
+    this.modal = document.getElementById("modal");
+    this.modalContainer = document.getElementById("modalContainer");
     this.close = document.getElementsByClassName("close")[0];
     this.close.onclick = () => {
       this.closeModal();
@@ -11,6 +12,7 @@ export default class ModalManager {
     document.getElementById("modalTitle").innerHTML = title;
     document.getElementById("modalDescription").innerHTML = content;
     this.modal.style.display = "block";
+    this.modalContainer.scrollTop = 0;
     this.modal.classList.remove("fadeOut");
     this.modal.classList.add("fadeIn");
   }
