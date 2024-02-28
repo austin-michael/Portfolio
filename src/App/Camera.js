@@ -18,16 +18,26 @@ export default class Camera {
     // this.addCameraHelper();
   }
 
+  // returns preferred starting fov based upon the width of the screen
+  getFOV() {
+    if (this.sizes.width > 1500) return 25;
+    if (this.sizes.width > 1200) return 30;
+    if (this.sizes.width > 900) return 40;
+    if (this.sizes.width > 600) return 45;
+    return 50;
+  }
+
   setInstance() {
+    console.log(this.sizes.width);
     this.instance = new THREE.PerspectiveCamera(
-      35,
+      this.getFOV(),
       this.sizes.width / this.sizes.height,
       1,
       600
     );
-    this.instance.position.z = 70;
-    this.instance.position.y = 35;
-    this.instance.position.x = -70;
+    this.instance.position.x = -55;
+    this.instance.position.y = 10;
+    this.instance.position.z = 55;
   }
 
   setControls() {

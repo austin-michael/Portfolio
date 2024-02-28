@@ -28,7 +28,7 @@ export default class Environment {
     const environmentScene = this.environment.scene;
     this.scene.add(environmentScene);
 
-    environmentScene.position.set(0, 0, 0);
+    environmentScene.position.set(0, -5, 0);
     // environmentScene.rotation.set(0, -0.6, 0);
     // environmentScene.scale.setScalar(5);
 
@@ -51,7 +51,7 @@ export default class Environment {
   }
 
   addLights() {
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
     this.scene.add(ambientLight);
 
     this.directionalLight = new THREE.DirectionalLight(0xffffff, 1);
