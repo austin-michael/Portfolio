@@ -79,6 +79,31 @@ body {
   }
 }
 
+.instructions {
+  display: none;
+  color: white;
+  align-items: center;
+  gap: 8px;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.instructions span {
+  font-size: 24px;
+}
+
+.instructions.fadeIn {
+  opacity: 1;
+}
+
+.instructions.fadeOut {
+  opacity: 0;
+}
+
 .modal {
   display: none;
   position: fixed;

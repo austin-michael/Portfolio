@@ -1,3 +1,4 @@
+import Instructions from "../Utils/Instructions.js";
 import assetStore from "../Utils/AssetStore.js";
 import { appStateStore } from "../Utils/Store.js";
 
@@ -35,6 +36,7 @@ export default class Preloader {
       () => {
         this.overlay.classList.add("fade");
         this.startButton.classList.add("fadeOut");
+        this.instructions = new Instructions();
 
         window.setTimeout(() => {
           this.overlay.remove();

@@ -8,6 +8,7 @@ import World from "./World/World.js";
 import Resize from "./Utils/Resize.js";
 import AssetLoader from "./Utils/AssetLoader.js";
 import Preloader from "./UI/Preloader.js";
+import Instructions from "./Utils/Instructions.js";
 
 let instance = null;
 
