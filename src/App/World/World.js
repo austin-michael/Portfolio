@@ -1,6 +1,7 @@
 import App from "../App.js";
 import Environment from "./Environment.js";
 import { appStateStore } from "../Utils/Store.js";
+import AnimationController from "./AnimationController.js";
 
 export default class World {
   constructor() {
@@ -10,6 +11,7 @@ export default class World {
     const unsub = appStateStore.subscribe((state) => {
       if (state.assetsReady) {
         this.environment = new Environment();
+        // this.animationController = new AnimationController();
         unsub();
       }
     });
@@ -19,5 +21,6 @@ export default class World {
 
   loop(deltaTime, elapsedTime) {
     if (this.environment) this.environment.loop();
+    // if (this.animationController) this.animationController.loop(elapsedTime);
   }
 }

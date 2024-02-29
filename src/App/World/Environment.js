@@ -29,8 +29,6 @@ export default class Environment {
     this.scene.add(environmentScene);
 
     environmentScene.position.set(0, -5, 0);
-    // environmentScene.rotation.set(0, -0.6, 0);
-    // environmentScene.scale.setScalar(5);
 
     const shadowCasters = ["TERRAIN", "POLES", "LIFT", "SIGNS", "TREES", "HUT"];
 
