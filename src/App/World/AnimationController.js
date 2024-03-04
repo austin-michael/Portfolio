@@ -12,6 +12,9 @@ export default class AnimationController {
     this.pathHelper();
 
     this.createGondolas();
+    this.gondolaBoundingBox = new THREE.Box3().setFromObject(this.gondolaOne);
+    this.gondolaHeight =
+      this.gondolaBoundingBox.max.y - this.gondolaBoundingBox.min.y;
   }
 
   createCatmullRomCurve(json) {
@@ -39,23 +42,18 @@ export default class AnimationController {
 
   createGondolas() {
     this.gondolaOne =
-      this.scene.children[0].children[0].children[0].children[1].children[0].children[0];
-    this.gondolaTwo =
-      this.scene.children[0].children[0].children[0].children[1].children[1].children[0];
-    this.gondolaThree =
-      this.scene.children[0].children[0].children[0].children[1].children[2].children[0];
-    this.gondolaFour =
       this.scene.children[0].children[0].children[0].children[1].children[3].children[0];
+    this.gondolaTwo =
+      this.scene.children[0].children[0].children[0].children[1].children[2].children[0];
+    this.gondolaThree =
+      this.scene.children[0].children[0].children[0].children[1].children[1].children[0];
+    this.gondolaFour =
+      this.scene.children[0].children[0].children[0].children[1].children[0].children[0];
 
-    const gondolaOnePosition = this.path.getPointAt(0.0);
-    const gondolaTwoPosition = this.path.getPointAt(0.25);
-    const gondolaThreePosition = this.path.getPointAt(0.5);
-    const gondolaFourPosition = this.path.getPointAt(0.75);
-
-    this.gondolaOne.position.copy(gondolaOnePosition);
-    this.gondolaTwo.position.copy(gondolaTwoPosition);
-    this.gondolaThree.position.copy(gondolaThreePosition);
-    this.gondolaFour.position.copy(gondolaFourPosition);
+    this.gondolaOneInitialPosition = this.gondolaOne.position.clone();
+    this.gondolaTwoInitialPosition = this.gondolaTwo.position.clone();
+    this.gondolaThreeInitialPosition = this.gondolaThree.position.clone();
+    this.gondolaFourInitialPosition = this.gondolaFour.position.clone();
   }
 
   pathHelper() {
@@ -67,24 +65,54 @@ export default class AnimationController {
     this.scene.add(pathObject);
   }
 
-  loop(elapsedTime) {
-    const speed = 0.01;
-    this.gondolaOne.position.copy(
-      this.path.getPointAt((elapsedTime * speed + 0.0) % 1)
-    );
-    this.gondolaTwo.position.copy(
-      this.path.getPointAt((elapsedTime * speed + 0.25) % 1)
-    );
-    this.gondolaThree.position.copy(
-      this.path.getPointAt((elapsedTime * speed + 0.5) % 1)
-    );
-    this.gondolaFour.position.copy(
-      this.path.getPointAt((elapsedTime * speed + 0.75) % 1)
-    );
+  calculatePosition(speed, elapsedTime) {
+    // GONDOLA 1
+    const offset1 = this.path
+      .getPointAt((elapsedTime * speed) % 1)
+      .sub(this.gondolaOneInitialPosition);
+    this.gondolaOne.position.copy(this.gondolaOneInitialPosition).add(offset1);
+    this.gondolaOne.position.y =
+      this.path.getPointAt((elapsedTime * speed) % 1).y -
+      this.gondolaHeight / 2;
 
-    // const tanget = this.path
-    //   .getTangentAt((elapsedTime * speed + 0.0) % 1)
-    //   .normalize();
-    // this.gondolaOne.lookAt(this.gondolaOne.position.clone().add(tanget));
+    // GONDOLA 2
+    const offset2 = this.path
+      .getPointAt((elapsedTime * speed + 0.25) % 1)
+      .sub(this.gondolaTwoInitialPosition);
+    this.gondolaTwo.position.copy(this.gondolaTwoInitialPosition).add(offset2);
+    this.gondolaTwo.position.y =
+      this.path.getPointAt((elapsedTime * speed + 0.25) % 1).y -
+      this.gondolaHeight / 2;
+
+    // GONDOLA 3
+    const offset3 = this.path
+      .getPointAt((elapsedTime * speed + 0.5) % 1)
+      .sub(this.gondolaThreeInitialPosition);
+    this.gondolaThree.position
+      .copy(this.gondolaThreeInitialPosition)
+      .add(offset3);
+    this.gondolaThree.position.y =
+      this.path.getPointAt((elapsedTime * speed + 0.5) % 1).y -
+      this.gondolaHeight / 2;
+
+    // GONDOLA 4
+    const offset4 = this.path
+      .getPointAt((elapsedTime * speed + 0.75) % 1)
+      .sub(this.gondolaFourInitialPosition);
+    this.gondolaFour.position
+      .copy(this.gondolaFourInitialPosition)
+      .add(offset4);
+    this.gondolaFour.position.y =
+      this.path.getPointAt((elapsedTime * speed + 0.75) % 1).y -
+      this.gondolaHeight / 2;
+  }
+
+  calculateRotation(speed, elapsedTime) {}
+
+  loop(elapsedTime) {
+    const speed = 0.001;
+
+    this.calculatePosition(speed, elapsedTime);
+    this.calculateRotation(speed, elapsedTime);
   }
 }

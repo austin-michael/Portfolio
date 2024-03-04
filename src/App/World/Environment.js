@@ -28,7 +28,7 @@ export default class Environment {
     const environmentScene = this.environment.scene;
     this.scene.add(environmentScene);
 
-    environmentScene.position.set(0, -5, 0);
+    environmentScene.position.set(0, 0, 0);
 
     const shadowCasters = ["TERRAIN", "POLES", "LIFT", "SIGNS", "TREES", "HUT"];
 
