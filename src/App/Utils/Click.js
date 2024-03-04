@@ -39,16 +39,16 @@ export default class Click {
         case "PROJECTS":
           modalContent =
             this.modalContentProvider.fetchModalContents("PROJECTS");
-          this.modalManager.openModal("Projects", modalContent);
+          this.modalManager.openModal("PROJECTS", modalContent);
           break;
         case "ABOUT":
           modalContent = this.modalContentProvider.fetchModalContents("ABOUT");
-          this.modalManager.openModal("About", modalContent);
+          this.modalManager.openModal("ABOUT", modalContent);
           break;
         case "EXPERIENCE":
           modalContent =
             this.modalContentProvider.fetchModalContents("EXPERIENCE");
-          this.modalManager.openModal("Experience", modalContent);
+          this.modalManager.openModal("EXPERIENCE", modalContent);
           break;
       }
     });
