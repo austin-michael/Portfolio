@@ -29,7 +29,7 @@ export default class Camera {
 
   setInstance() {
     this.instance = new THREE.PerspectiveCamera(
-      35,
+      this.getFOV(),
       this.sizes.width / this.sizes.height,
       1,
       600
